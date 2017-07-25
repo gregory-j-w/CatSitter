@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PetregisterComponent } from './petregister/petregister.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'petregister',
     component: PetregisterComponent
+  },
+  {
+    path: 'appointment',
+    component: AppointmentComponent
   }
 ]
 
@@ -40,7 +45,8 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PetregisterComponent
+    PetregisterComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,

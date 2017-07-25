@@ -1,31 +1,49 @@
 <!-- User Profile Page -->
 
-<!-- nav bar: /home /services /contact /reviews / PROFILE-->
+<!-- nav bar: /home /services /contact/ PROFILE-->
+<nav class = "nav">
+  <ul>
+    <li><div (click) = home()>Home</div></li>
+    <li><div (click) = services()>Services</div></li>
+    <li><div (click) = contact()>Contact</div></li>
+    <li><div (click) = profile()>Profile</div></li>
+    <li><div (click) = appointment()>Appointment></li>
+    <li><div (click) = logout()>Logout</div></li>
+  </ul>
+</nav>
 
-<!-- Hi <name> -->
-
-<!-- List: pets -->
-
-<!-- Link to add more pets -->
+<!-- Hi {{user.firstname}} -->
 
 <!-- List Upcoming Appointments -->
 
-<!-- Book New Appointment Link-->
-
-<!-- Update Profile Link -->
-<div *ngIf="showUserPatchForm">
-  <input [(ngModel)]="newUser.firstname" placeholder="first name"/>
-  <input [(ngModel)]="newUser.lastname" placeholder="last name"/>
-  <input [(ngModel)]="newUser.email" placeholder="email"/>
-  <input [(ngModel)]="newUser.password_digest" placeholder="password"/>
-  <input [(ngModel)]="newUser.phone" placeholder="phone number"/>
-  <input [(ngModel)]="newUser.street" placeholder="street address"/>
-  <input [(ngModel)]="newUser.city" placeholder="city"/>
-  <input [(ngModel)]="newUser.state" placeholder="state"/>
-  <input [(ngModel)]="newUser.zip" placeholder="zip code"/>
-  <button (click)="patchUser()">Update Info</button>
+<!-- List: pets -->
+  <!--Get pet name -->
+<div (click) = "showPetPatchForm = !showPetPatchForm">Update Pet Info</div>
+<div *ngIf = "showPetPatchForm">
+  <input [(ngModel)] = "updatePet.name" placeholder="pet name"/>
+  <input [(ngModel)] = "updatePet.species" placeholder="animal type"/>
+  <input [(ngModel)] = "updatePet.birthyear" placeholder="birth year (or best guess)"/>
+  <input [(ngModel)] = "updatePet.notes" placeholder="tell us a little bit about your pet"/>
+  <div (click) = "patchPet()">Update</div>
 </div>
 
-<p>
-  profile works!
-</p>
+<!-- Link to add more pets -->
+  <div (click)="petRegister()">Add another Pet</div>
+
+
+
+
+<!-- Update Profile Link -->
+<div (click)="showUserPatchForm = !showUserPatchForm">Update Profile</div>
+<div *ngIf="showUserPatchForm">
+  <input [(ngModel)]="updateUser.firstname" placeholder="first name"/>
+  <input [(ngModel)]="updateUser.lastname" placeholder="last name"/>
+  <input [(ngModel)]="updateUser.email" placeholder="email"/>
+  <input [(ngModel)]="updateUser.password_digest" placeholder="password"/>
+  <input [(ngModel)]="updateUser.phone" placeholder="phone number"/>
+  <input [(ngModel)]="updateUser.street" placeholder="street address"/>
+  <input [(ngModel)]="updateUser.city" placeholder="city"/>
+  <input [(ngModel)]="updateUser.state" placeholder="state"/>
+  <input [(ngModel)]="updateUser.zip" placeholder="zip code"/>
+  <div (click)="patchUser()">Update</div>
+</div>
