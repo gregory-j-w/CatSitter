@@ -6,6 +6,12 @@ require './models/PetModel'
 require './models/SitterModel'
 require './models/AppointmentModel'
 
+require './controllers/ApplicationController'
+require './controllers/AppointmentController'
+require './controllers/PetController'
+require './controllers/SitterController'
+require './controllers/UserController'
+
 
 run Sinatra::Application
 

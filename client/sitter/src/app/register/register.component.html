@@ -1,19 +1,8 @@
-<!-- User Profile Page -->
+<!-- User Registration Page -->
 
-<!-- nav bar: /home /services /contact /reviews / PROFILE-->
+<!-- nav bar: /home /services /contact /reviews /login /REGISTER-->
 
-<!-- Hi <name> -->
-
-<!-- List: pets -->
-
-<!-- Link to add more pets -->
-
-<!-- List Upcoming Appointments -->
-
-<!-- Book New Appointment Link-->
-
-<!-- Update Profile Link -->
-<div *ngIf="showUserPatchForm">
+<!-- user info -->
   <input [(ngModel)]="newUser.firstname" placeholder="first name"/>
   <input [(ngModel)]="newUser.lastname" placeholder="last name"/>
   <input [(ngModel)]="newUser.email" placeholder="email"/>
@@ -23,9 +12,7 @@
   <input [(ngModel)]="newUser.city" placeholder="city"/>
   <input [(ngModel)]="newUser.state" placeholder="state"/>
   <input [(ngModel)]="newUser.zip" placeholder="zip code"/>
-  <button (click)="patchUser()">Update Info</button>
-</div>
+  <button (click)="postUser()">Submit</button>
 
-<p>
-  profile works!
-</p>
+<!-- or login here -->
+<a href = "/login">Log In Here</a>

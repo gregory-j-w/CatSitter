@@ -1,27 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router'
+import { HttpModule } from '@angular/http'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './src/app/home/home.component';
-import { UserregComponent } from './src/app/userreg/userreg.component';
-import { PetregComponent } from './src/app/petreg/petreg.component';
-import { AppointmentComponent } from './src/app/appointment/appointment.component';
-import { ProfileComponent } from './src/app/profile/profile.component';
-import { SitterloginComponent } from './src/app/sitterlogin/sitterlogin.component';
-import { SitterhomeComponent } from './src/app/sitterhome/sitterhome.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PetregisterComponent } from './petregister/petregister.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent
+    path: '',
+    component: AppComponent
   },
   {
-    path: 'userreg',
-    component: UserregComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'profile/:id',
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'petregister',
+    component: PetregisterComponent
   }
 ]
 
@@ -29,16 +37,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    UserregComponent,
-    PetregComponent,
-    AppointmentComponent,
+    LoginComponent,
+    RegisterComponent,
     ProfileComponent,
-    SitterloginComponent,
-    SitterhomeComponent
+    PetregisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

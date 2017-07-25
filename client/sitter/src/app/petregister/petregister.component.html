@@ -1,0 +1,12 @@
+<!-- Pet Registration Page -->
+
+<!-- nav bar: /home /services /contact /reviews /login /REGISTER-->
+
+<!-- pet info -->
+  <input [(ngModel)]="newPet.name" placeholder="pet's name"/>
+  <input [(ngModel)]="newPet.species" placeholder="animal type"/>
+  <input [(ngModel)]="newPet.birthyear" placeholder="birth year (or best guess)"/>
+  <input [(ngModel)]="newPet.notes" placeholder="tell us a little bit about your pet"/>
+<!--come back to this part -->
+  <input [(ngModel)]="newPet.photo" placeholder="upload a picture!"/>
+  <button (click)="postPet()">Add</button>
