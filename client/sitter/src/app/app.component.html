@@ -1,7 +1,14 @@
-<!-- home page -->
-
-<!-- nav bar: /HOME /services /contact /reviews /login /sign up-->
-
-<!-- main: About us -->
-<router-outlet></router-outlet>
-<!-- footer: copyright, web developer, employee login -->
+<div class = "container">
+  <div class = "row">
+    <ul class = "nav-tabs">
+      <li class = "nav-link"><a [routerLink] = "['/']">Home</a></li>
+      <li class = "nav-link"><a [routerLink] = "['/services']">Services</a></li>
+      <li class = "nav-link"><a [routerLink] = "['/contact']">Contact Us</a></li>
+      <li class = "nav-link"><a [routerLink] = "['/appointment']">Appointments</a></li>
+      <li class = "nav-link"><a [routerLink] = "['/profile']">Profile</a></li>
+      <li class = "nav-link"><a [routerLink] = "['/login']">Login</a></li>
+    </ul>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+</div>

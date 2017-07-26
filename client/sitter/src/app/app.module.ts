@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PetregisterComponent } from './petregister/petregister.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { SitterComponent } from './sitter/sitter.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,8 @@ const routes: Routes = [
     RegisterComponent,
     ProfileComponent,
     PetregisterComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    SitterComponent
   ],
   imports: [
     BrowserModule,
