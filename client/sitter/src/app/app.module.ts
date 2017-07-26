@@ -5,17 +5,29 @@ import { HttpModule } from '@angular/http'
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PetregisterComponent } from './petregister/petregister.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { SitterComponent } from './sitter/sitter.component';
+import { ServicesComponent } from './services/services.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppComponent
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'services',
+    component: ServicesComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: 'login',
@@ -43,12 +55,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
     PetregisterComponent,
     AppointmentComponent,
-    SitterComponent
+    SitterComponent,
+    ServicesComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

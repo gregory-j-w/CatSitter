@@ -44,12 +44,34 @@ export class ProfileComponent {
   updatePet: Pet = new Pet();
   showPetPatchForm: boolean = false;
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: Http, private router: Router) {
+    this.getUsers();
+  }
+
+  getUsers(){
+  this.http.get('http://localhost:9393/users?token=' + window.localStorage.token).subscribe(response => {
+    this.users = response.json()
+    }, err => {
+      //if permission denied
+      if(err.status === 403){
+        this.router.navigate(['/login'])
+      } else {
+        alert("ERROR");
+      }
+    })
+   }
 
   patchUser(){
     this.showUserPatchForm = true
     this.http.patch('http://localhost:9393/users/' + this.updateUser.id, this.updateUser).subscribe(response =>
     this.users = response.json()
-  )
-}
+    )
+  }
+
+  patchPet(){
+    this.showPetPatchForm = true
+    this.http.patch('http://localhost:9393/pets/' + this.updatePet.id, this.updatePet).subscribe(response =>
+    this.users = response.json()
+    )
+  }
 }

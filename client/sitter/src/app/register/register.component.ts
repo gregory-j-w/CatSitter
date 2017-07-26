@@ -30,7 +30,7 @@ export class RegisterComponent {
   }
 
   postUser(){
-    this.http.post('http://localhost:4200/users?token=' + window.localStorage.token, this.newUser).subscribe(response =>{
+    this.http.post('http://localhost:9393/users?token=' + window.localStorage.token, this.newUser).subscribe(response =>{
         this.users = response.json()
       }, err =>{
         //if permission denied
@@ -44,7 +44,7 @@ export class RegisterComponent {
     }
 
   getUser(id){
-    this.http.get('http://localhost:4200/users/' + id).subscribe(response =>
+    this.http.get('http://localhost:9393/users/' + id).subscribe(response =>
       this.user = response.json()
     )
   }

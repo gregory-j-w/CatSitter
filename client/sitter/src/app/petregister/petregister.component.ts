@@ -26,7 +26,7 @@ export class PetregisterComponent {
   }
 
   postPet(){
-    this.http.post('http://localhost:4200/pets', this.newPet).subscribe(response =>{
+    this.http.post('http://localhost:9393/pets', this.newPet).subscribe(response =>{
         this.pets = response.json()
       }, err =>{
         //if permission denied
@@ -40,7 +40,7 @@ export class PetregisterComponent {
     }
 
   getPet(id){
-    this.http.get('http://localhost:4200/pets/' + id).subscribe(response =>
+    this.http.get('http://localhost:9393/pets/' + id).subscribe(response =>
       this.pet = response.json()
     )
   }

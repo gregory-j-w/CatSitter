@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 ul {
-  list-style: none
+  list-style: none;
+}
+
+th, td {
+  border: 1px solid black;
+}
+
+
+.footer-contact {
+   float: left;
+   width: 30px;
+   height: 30px;
+  }
+
+.footer-contact img {
+  width: 100%;
+  height: auto;
+  }
+
+# copyright {
+  float: right;
+  text-decoration: none;
 }

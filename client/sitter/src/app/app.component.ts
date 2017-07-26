@@ -12,7 +12,7 @@ export class AppComponent {
   h2 = 'About Us';
 
   constructor(private http: Http, private router: Router) { }
-  
+
   logout(){
     window.localStorage.clear();
     this.router.navigate(['/login'])
