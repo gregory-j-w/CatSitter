@@ -22,18 +22,20 @@ class PetController < ApplicationController
   end
 
   patch '/:id' do
-    id = params[:id]
-    pet = Pet.find(id)
     request_body = JSON.parse(request.body.read)
+    token = params[:token]
+    id = params[:id]
+    user = User.find_by(token: token)
+    pet = Pet.find(id)
     pet.update_attributes(request_body)
     pet.save
-    Pet.all.to_json
+    pet.to_json
   end
 
   delete '/:id' do
     id = params[:id]
     pet = Pet.find(id)
     pet.destroy
-    Pet.all.to_json
+    pet.to_json
   end
 end

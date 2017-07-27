@@ -28,7 +28,8 @@ export class AppointmentComponent {
   }
 
   postAppointment(){
-    this.http.post('http://localhost:9393/appointment?token=' + window.localStorage.token, this.newAppointment).subscribe(response =>{
+    console.log(this.newAppointment);
+    this.http.post('http://localhost:9393/appointments?token=' + window.localStorage.token, this.newAppointment).subscribe(response =>{
         this.appointments = response.json()
       }, err =>{
         //if permission denied
@@ -46,6 +47,4 @@ export class AppointmentComponent {
       this.appointment = response.json()
     )
   }
-
-  
 }

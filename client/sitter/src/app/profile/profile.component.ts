@@ -49,10 +49,9 @@ export class ProfileComponent {
   showUserPatchForm: boolean = false;
 
   pet: Pet = new Pet();
-  updatePet: Pet = new Pet();
   showPetPatchForm: boolean = false;
 
-  appointment: Appointment = new Appointment();
+  appointments: Appointment[] = [];
   updateAppointment: Appointment = new Appointment();
 
   constructor(private http: Http, private router: Router) {
@@ -63,6 +62,7 @@ export class ProfileComponent {
   this.http.get('http://localhost:9393/users?token=' + window.localStorage.token).subscribe(response => {
     this.user = response.json().user
     this.pet = response.json().pet
+    this.appointments = response.json().appointments
 
     }, err => {
       //if permission denied
@@ -90,8 +90,8 @@ export class ProfileComponent {
 
   patchPet(){
     this.showPetPatchForm = true
-    this.http.patch('http://localhost:9393/pets/' + this.updatePet.id, this.updatePet).subscribe(response => {
-       this.user = response.json().pet
+    this.http.patch('http://localhost:9393/pets/' + this.pet.id, this.pet).subscribe(response => {
+       this.pet = response.json()
     }, err => {
       //if permission denied
       if(err.status === 403){
@@ -102,18 +102,18 @@ export class ProfileComponent {
     })
   }
 
-  patchAppointment() {
-    this.http.patch('http://localhost:9393/appointments/' + this.updateAppointment.id, this.updatePet).subscribe(response => {
-       this.user = response.json()
-    }, err => {
-      //if permission denied
-      if(err.status === 403){
-      this.router.navigate(['/login'])
-    } else {
-      alert("ERROR");
-      }
-    })
-  }
+  // patchAppointment() {
+  //   this.http.patch('http://localhost:9393/appointments/' + this.updateAppointment.id, this.appointment).subscribe(response => {
+  //      this.user = response.json()
+  //   }, err => {
+  //     //if permission denied
+  //     if(err.status === 403){
+  //     this.router.navigate(['/login'])
+  //   } else {
+  //     alert("ERROR");
+  //     }
+  //   })
+  // }
 
 
 }

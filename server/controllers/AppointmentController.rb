@@ -13,8 +13,11 @@ class AppointmentController < ApplicationController
 
   post '/' do
     request_body = JSON.parse(request.body.read)
+    token = params[:token]
+    user = User.find_by(token: token)
     appointment = Appointment.new(request_body)
-    appointment.save
+    appointment.ownerid = user.id
+    appointment.save!
     Appointment.all.to_json
   end
 

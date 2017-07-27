@@ -29,7 +29,7 @@ CREATE TABLE pets (
 CREATE TABLE appointments (
   ID SERIAL PRIMARY KEY,
   date DATE,
-  time TIME,
+  time VARCHAR(255),
   ownerid INT references users(id),
   petid INT references pets(id),
   sitterid INT references sitters(id),
@@ -56,3 +56,5 @@ VALUES ('Jack', 'cat', 2003, 'http://wonderopolis.org/wp-content/uploads/2015/08
 INSERT INTO sitters (firstname, lastname, username, password_digest) VALUES ('Testsitter', 'McTester', 'sittertest1', 'sittertesting1');
 
 ALTER TABLE users ALTER COLUMN token type VARCHAR(255);
+
+ALTER TABLE appointments ALTER COLUMN time type VARCHAR(255);

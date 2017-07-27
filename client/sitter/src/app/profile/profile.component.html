@@ -13,7 +13,6 @@
       <input [(ngModel)]="updateUser.firstname" placeholder={{user.firstname}}/>
       <input [(ngModel)]="updateUser.lastname" placeholder={{user.lastname}}/>
       <input [(ngModel)]="updateUser.email" placeholder={{user.email}}/>
-      <input [(ngModel)]="updateUser.password" placeholder={{user.password}}/>
       <input [(ngModel)]="updateUser.phone" placeholder={{user.phone}}/>
       <input [(ngModel)]="updateUser.street" placeholder={{user.address}}/>
       <input [(ngModel)]="updateUser.city" placeholder={{user.city}}/>
@@ -31,10 +30,10 @@
     {{pet.name}}
     <div (click) = "showPetPatchForm = !showPetPatchForm">Update Pet Info</div>
     <div *ngIf = "showPetPatchForm">
-      <input [(ngModel)] = "updatePet.name" placeholder={{pet.name}}/>
-      <input [(ngModel)] = "updatePet.species" placeholder={{pet.species}}/>
-      <input [(ngModel)] = "updatePet.birthyear" placeholder={{pet.birthyear}}/>
-      <input [(ngModel)] = "updatePet.notes" placeholder={{pet.notes}}/>
+      <input [(ngModel)] = "pet.name" placeholder={{pet.name}}/>
+      <input [(ngModel)] = "pet.species" placeholder={{pet.species}}/>
+      <input [(ngModel)] = "pet.birthyear" placeholder={{pet.birthyear}}/>
+      <input [(ngModel)] = "pet.notes" placeholder={{pet.notes}}/>
       <div (click) = "patchPet()">Update</div>
     </div>
   </div>
@@ -55,13 +54,12 @@
           <th>Notes</th>
           <th></th>
           <th></th>
-        <tr>
+        <tr *ngFor = "let appointment of appointments" >
           <td>{{appointment.date}}</td>
           <td>{{appointment.time}}</td>
           <td>{{appointment.service}}</td>
           <td>{{appointment.notes}}</td>
           <td><button (click) = "patchAppointment()">Edit</button></td>
-          <td><button (click) = "deleteAppointment()">Cancel</button></td>
         </tr>
       </table>
     </li>
