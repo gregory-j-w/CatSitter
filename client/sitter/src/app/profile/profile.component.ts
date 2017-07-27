@@ -102,18 +102,4 @@ export class ProfileComponent {
     })
   }
 
-  // patchAppointment() {
-  //   this.http.patch('http://localhost:9393/appointments/' + this.updateAppointment.id, this.appointment).subscribe(response => {
-  //      this.user = response.json()
-  //   }, err => {
-  //     //if permission denied
-  //     if(err.status === 403){
-  //     this.router.navigate(['/login'])
-  //   } else {
-  //     alert("ERROR");
-  //     }
-  //   })
-  // }
-
-
 }

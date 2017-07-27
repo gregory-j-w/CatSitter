@@ -22,12 +22,14 @@ class AppointmentController < ApplicationController
   end
 
   patch '/:id' do
-    id = params[:id]
-    appointment = Appointment.find(id)
     request_body = JSON.parse(request.body.read)
+    token = params[:token]
+    id = params[:id]
+    user = User.find_by(token: token)
+    apppointment = Appointment.find(id)
     appointment.update_attributes(request_body)
     appointment.save
-    Appointment.all.to_json
+    appointment.to_json
   end
 
   delete '/:id' do

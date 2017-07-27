@@ -51,23 +51,13 @@
           <th>Date</th>
           <th>Time</th>
           <th>Service</th>
-          <th>Notes</th>
-          <th></th>
-          <th></th>
+          <th>Special Instructions</th>
         <tr *ngFor = "let appointment of appointments" >
           <td>{{appointment.date}}</td>
           <td>{{appointment.time}}</td>
           <td>{{appointment.service}}</td>
           <td>{{appointment.notes}}</td>
-          <td><button (click) = "patchAppointment()">Edit</button></td>
-        </tr>
       </table>
     </li>
   </ul>
 </div>
-
-<!-- Link to add more pets -->
-  <!-- <div (click)="petRegister()">Add another Pet</div> -->
-
-
-<!-- List Upcoming Appointments -->

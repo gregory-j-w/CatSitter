@@ -9,8 +9,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  h2 = 'About Us';
-
+  
   constructor(private http: Http, private router: Router) { }
 
   logout(){
