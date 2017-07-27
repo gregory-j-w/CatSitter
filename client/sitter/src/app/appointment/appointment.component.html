@@ -2,20 +2,33 @@
 <div>
 
 </div>
-<div class = "appointmentDetails">
-  <select name="appointmentTime">
-  <option value="morning">9am to 12pm</option>
-  <option value="afternoon" selected>12pm to 4pm</option>
-  <option value="evening">4pm to 7pm</option>
-  <option value="whenever">9am to 7pm</option>
-</select>
-
-
-
-
-
-
-
-<p>
-  appointment works!
-</p>
+  <div class = "appointmentTime">
+    <p>Time: </p>
+    <select name="time">
+      <option value="morning">9am to 12pm</option>
+      <option value="afternoon" selected>12pm to 3pm</option>
+      <option value="evening">4pm to 6pm</option>
+      <option value="whenever">9am to 6pm</option>
+    </select>
+  </div>
+  <div class = "appointmentType">
+    <p>Type: </p>
+    <select name="type">
+      <option value="cat30">30 min Cat Visit</option>
+      <option value="cat45" selected>45 min Cat Visit</option>
+      <option value="cat60">60 min Cat Visit</option>
+      <option value="overnight">Overnight Cat Sleepover</option>
+    </select>
+  </div>
+  <div class = "appointmentExtras">
+    <p>Other Services: </p>
+    <select name="extra">
+      <option value="litter">Litter Change</option>
+      <option value="medicine" selected>Medicine</option>
+      <option value="other">Something Else</option>
+    </select>
+    <input [(ngModel)]="appointment.notes" placeholder="Anything else we can do to
+    make your cat more comfortable?"/>
+  </div>
+  <div>
+  <button (click)="makeAppointment()">Make Appointment</button>
