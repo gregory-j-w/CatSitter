@@ -25,7 +25,8 @@ class UserController < ApplicationController
     token = params[:token]
     user = User.find_by(token:token)
     pet = Pet.find_by(ownerid:user.id)
-    {user: user, pet: pet}.to_json
+    appointment = Appointment.find_by(ownerid:user.id)
+    {user: user, pet: pet, appointment: appointment}.to_json
   end
 
   #post request to /users/login

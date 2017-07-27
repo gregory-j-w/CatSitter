@@ -2,6 +2,7 @@
 <div>
 
 </div>
+<div>
   <div class = "appointmentTime">
     <p>Time: </p>
     <select name="time">
@@ -20,15 +21,8 @@
       <option value="overnight">Overnight Cat Sleepover</option>
     </select>
   </div>
-  <div class = "appointmentExtras">
-    <p>Other Services: </p>
-    <select name="extra">
-      <option value="litter">Litter Change</option>
-      <option value="medicine" selected>Medicine</option>
-      <option value="other">Something Else</option>
-    </select>
-    <input [(ngModel)]="appointment.notes" placeholder="Anything else we can do to
-    make your cat more comfortable?"/>
-  </div>
   <div>
-  <button (click)="makeAppointment()">Make Appointment</button>
+    <input [(ngModel)]="appointment.notes" placeholder="Anything else we can do? Litter change, administer medicine, something else? Let us know!"/>
+  </div>
+</div>
+  <button (click)="postAppointment()">Make Appointment</button>

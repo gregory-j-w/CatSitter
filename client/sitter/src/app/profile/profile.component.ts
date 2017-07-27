@@ -28,6 +28,14 @@ class Pet{
   ownerid: number;
 }
 
+class Appointment{
+  id: number;
+  date: string;
+  time: string;
+  service: string;
+  notes: string;
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -43,6 +51,9 @@ export class ProfileComponent {
   pet: Pet = new Pet();
   updatePet: Pet = new Pet();
   showPetPatchForm: boolean = false;
+
+  appointment: Appointment = new Appointment();
+  updateAppointment: Appointment = new Appointment();
 
   constructor(private http: Http, private router: Router) {
     this.getUsers();
@@ -65,7 +76,7 @@ export class ProfileComponent {
 
   patchUser(){
     this.showUserPatchForm = true
-    this.http.patch('http://localhost:9393/users>token=' + window.localStorage.token + this.updateUser.id, this.updateUser).subscribe(response => {
+    this.http.patch('http://localhost:9393/users?token=' + window.localStorage.token + this.updateUser.id, this.updateUser).subscribe(response => {
       this.user = response.json().user
     }, err => {
       //if permission denied
@@ -73,9 +84,9 @@ export class ProfileComponent {
       this.router.navigate(['/login'])
     } else {
       alert("ERROR");
-    }
-  })
- }
+      }
+    })
+  }
 
   patchPet(){
     this.showPetPatchForm = true
@@ -87,7 +98,22 @@ export class ProfileComponent {
       this.router.navigate(['/login'])
     } else {
       alert("ERROR");
-    }
-  })
-}
+      }
+    })
+  }
+
+  patchAppointment() {
+    this.http.patch('http://localhost:9393/appointments/' + this.updateAppointment.id, this.updatePet).subscribe(response => {
+       this.user = response.json()
+    }, err => {
+      //if permission denied
+      if(err.status === 403){
+      this.router.navigate(['/login'])
+    } else {
+      alert("ERROR");
+      }
+    })
+  }
+
+
 }

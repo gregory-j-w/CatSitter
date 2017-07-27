@@ -11,14 +11,14 @@
   <div class = "profileUpdate">
     <div *ngIf="showUserPatchForm">
       <input [(ngModel)]="updateUser.firstname" placeholder={{user.firstname}}/>
-      <input [(ngModel)]="updateUser.lastname" placeholder="last name"/>
-      <input [(ngModel)]="updateUser.email" placeholder="email"/>
-      <input [(ngModel)]="updateUser.password_digest" placeholder="password"/>
-      <input [(ngModel)]="updateUser.phone" placeholder="phone number"/>
-      <input [(ngModel)]="updateUser.street" placeholder="street address"/>
-      <input [(ngModel)]="updateUser.city" placeholder="city"/>
-      <input [(ngModel)]="updateUser.state" placeholder="state"/>
-      <input [(ngModel)]="updateUser.zip" placeholder="zip code"/>
+      <input [(ngModel)]="updateUser.lastname" placeholder={{user.lastname}}/>
+      <input [(ngModel)]="updateUser.email" placeholder={{user.email}}/>
+      <input [(ngModel)]="updateUser.password" placeholder={{user.password}}/>
+      <input [(ngModel)]="updateUser.phone" placeholder={{user.phone}}/>
+      <input [(ngModel)]="updateUser.street" placeholder={{user.address}}/>
+      <input [(ngModel)]="updateUser.city" placeholder={{user.city}}/>
+      <input [(ngModel)]="updateUser.state" placeholder={{user.state}}/>
+      <input [(ngModel)]="updateUser.zip" placeholder={{user.zip}}/>
       <div (click)="patchUser()">Update</div>
     </div>
   </div>
@@ -31,21 +31,40 @@
     {{pet.name}}
     <div (click) = "showPetPatchForm = !showPetPatchForm">Update Pet Info</div>
     <div *ngIf = "showPetPatchForm">
-      <input [(ngModel)] = "updatePet.name" placeholder="pet name"/>
-      <input [(ngModel)] = "updatePet.species" placeholder="animal type"/>
-      <input [(ngModel)] = "updatePet.birthyear" placeholder="birth year (or best guess)"/>
-      <input [(ngModel)] = "updatePet.notes" placeholder="tell us a little bit about your pet"/>
+      <input [(ngModel)] = "updatePet.name" placeholder={{pet.name}}/>
+      <input [(ngModel)] = "updatePet.species" placeholder={{pet.species}}/>
+      <input [(ngModel)] = "updatePet.birthyear" placeholder={{pet.birthyear}}/>
+      <input [(ngModel)] = "updatePet.notes" placeholder={{pet.notes}}/>
       <div (click) = "patchPet()">Update</div>
     </div>
   </div>
 </div>
 <div class = "profileHeader">
   <h3>Appointments</h3>
-  <div class = "nav-link"><a [routerLink] = "['/appointment']">Appointments</a></div>
+  <div class = "nav-link"><a [routerLink] = "['/appointment']">make appointment</a></div>
 </div>
 <div>
   <ul class = "profileAppointments">
-    <li>appointment #1</li>
+    <h4>Scheduled</h4>
+    <li>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Service</th>
+          <th>Notes</th>
+          <th></th>
+          <th></th>
+        <tr>
+          <td>{{appointment.date}}</td>
+          <td>{{appointment.time}}</td>
+          <td>{{appointment.service}}</td>
+          <td>{{appointment.notes}}</td>
+          <td><button (click) = "patchAppointment()">Edit</button></td>
+          <td><button (click) = "deleteAppointment()">Cancel</button></td>
+        </tr>
+      </table>
+    </li>
   </ul>
 </div>
 
@@ -54,7 +73,3 @@
 
 
 <!-- List Upcoming Appointments -->
-
-
-<h3>Your Appointments</h3>
-<!-- Update Profile Link -->

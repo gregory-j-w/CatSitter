@@ -20,9 +20,32 @@ class Appointment{
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent {
+  appointments: Appointment[] = [];
+  newAppointment: Appointment = new Appointment();
+  appointment: Appointment = new Appointment();
 
+  constructor(private http: Http, private router: Router) {
+  }
 
+  postAppointment(){
+    this.http.post('http://localhost:9393/appointment?token=' + window.localStorage.token, this.newAppointment).subscribe(response =>{
+        this.appointments = response.json()
+      }, err =>{
+        //if permission denied
+        if(err.status === 403){
+          this.router.navigate(['/login'])
+        }else{
+          alert("ERROR");
+        }
+      })
+      this.router.navigate(['/profile'])
+    }
 
-  constructor() {
- }
+  getAppointment(id){
+    this.http.get('http://localhost:9393/appointments/' + id).subscribe(response =>
+      this.appointment = response.json()
+    )
+  }
+
+  
 }
