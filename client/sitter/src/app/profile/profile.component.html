@@ -3,37 +3,58 @@
 <!-- nav bar: /home /services /contact/ PROFILE-->
 
 <!-- Hi {{user.firstname}} -->
-
-<!-- List Upcoming Appointments -->
-
-<!-- List: pets -->
-  <!--Get pet name -->
-<div (click) = "showPetPatchForm = !showPetPatchForm">Update Pet Info</div>
-<div *ngIf = "showPetPatchForm">
-  <input [(ngModel)] = "updatePet.name" placeholder="pet name"/>
-  <input [(ngModel)] = "updatePet.species" placeholder="animal type"/>
-  <input [(ngModel)] = "updatePet.birthyear" placeholder="birth year (or best guess)"/>
-  <input [(ngModel)] = "updatePet.notes" placeholder="tell us a little bit about your pet"/>
-  <div (click) = "patchPet()">Update</div>
+<div class = "userProfile">
+  <div class = "profileHeader">
+    <h2>Hi {{user.firstname}}</h2>
+    <div (click)="showUserPatchForm = !showUserPatchForm">Update Profile</div>
+  </div>
+  <div class = "profileUpdate">
+    <div *ngIf="showUserPatchForm">
+      <input [(ngModel)]="updateUser.firstname" placeholder={{user.firstname}}/>
+      <input [(ngModel)]="updateUser.lastname" placeholder="last name"/>
+      <input [(ngModel)]="updateUser.email" placeholder="email"/>
+      <input [(ngModel)]="updateUser.password_digest" placeholder="password"/>
+      <input [(ngModel)]="updateUser.phone" placeholder="phone number"/>
+      <input [(ngModel)]="updateUser.street" placeholder="street address"/>
+      <input [(ngModel)]="updateUser.city" placeholder="city"/>
+      <input [(ngModel)]="updateUser.state" placeholder="state"/>
+      <input [(ngModel)]="updateUser.zip" placeholder="zip code"/>
+      <div (click)="patchUser()">Update</div>
+    </div>
+  </div>
+</div>
+<div class = "petProfile">
+  <div class = "profileHeader">
+    <h3>Your Pets</h3>
+  </div>
+  <div class = "petList">
+    {{pet.name}}
+    <div (click) = "showPetPatchForm = !showPetPatchForm">Update Pet Info</div>
+    <div *ngIf = "showPetPatchForm">
+      <input [(ngModel)] = "updatePet.name" placeholder="pet name"/>
+      <input [(ngModel)] = "updatePet.species" placeholder="animal type"/>
+      <input [(ngModel)] = "updatePet.birthyear" placeholder="birth year (or best guess)"/>
+      <input [(ngModel)] = "updatePet.notes" placeholder="tell us a little bit about your pet"/>
+      <div (click) = "patchPet()">Update</div>
+    </div>
+  </div>
+</div>
+<div class = "profileHeader">
+  <h3>Appointments</h3>
+  <div class = "nav-link"><a [routerLink] = "['/appointment']">Appointments</a></div>
+</div>
+<div>
+  <ul class = "profileAppointments">
+    <li>appointment #1</li>
+  </ul>
 </div>
 
 <!-- Link to add more pets -->
-  <div (click)="petRegister()">Add another Pet</div>
+  <!-- <div (click)="petRegister()">Add another Pet</div> -->
 
 
+<!-- List Upcoming Appointments -->
 
 
+<h3>Your Appointments</h3>
 <!-- Update Profile Link -->
-<div (click)="showUserPatchForm = !showUserPatchForm">Update Profile</div>
-<div *ngIf="showUserPatchForm">
-  <input [(ngModel)]="updateUser.firstname" placeholder={{user.firstname}}/>
-  <input [(ngModel)]="updateUser.lastname" placeholder="last name"/>
-  <input [(ngModel)]="updateUser.email" placeholder="email"/>
-  <input [(ngModel)]="updateUser.password_digest" placeholder="password"/>
-  <input [(ngModel)]="updateUser.phone" placeholder="phone number"/>
-  <input [(ngModel)]="updateUser.street" placeholder="street address"/>
-  <input [(ngModel)]="updateUser.city" placeholder="city"/>
-  <input [(ngModel)]="updateUser.state" placeholder="state"/>
-  <input [(ngModel)]="updateUser.zip" placeholder="zip code"/>
-  <div (click)="patchUser()">Update</div>
-</div>

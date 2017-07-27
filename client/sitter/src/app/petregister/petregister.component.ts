@@ -26,7 +26,7 @@ export class PetregisterComponent {
   }
 
   postPet(){
-    this.http.post('http://localhost:9393/pets', this.newPet).subscribe(response =>{
+    this.http.post('http://localhost:9393/pets?token=' + window.localStorage.token, this.newPet).subscribe(response =>{
         this.pets = response.json()
       }, err =>{
         //if permission denied

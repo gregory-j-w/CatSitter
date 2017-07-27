@@ -11,15 +11,21 @@ class UserController < ApplicationController
     user.email = user_details["email"]
     user.password = user_details["password"]
     user.phone = user_details["phone"]
-    user.streetaddress1 = user_details["streetaddress1"]
-    user.streetaddress2 = user_details["streetaddress2"]
+    user.street = user_details["street"]
     user.city = user_details["city"]
     user.state = user_details["state"]
     user.zip = user_details["zip"]
     user.token = SecureRandom.hex
 
-    user.save
+    user.save!
     user.to_json
+  end
+
+  get '/' do
+    token = params[:token]
+    user = User.find_by(token:token)
+    pet = Pet.find_by(ownerid:user.id)
+    {user: user, pet: pet}.to_json
   end
 
   #post request to /users/login

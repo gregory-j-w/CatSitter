@@ -54,3 +54,5 @@ INSERT INTO pets (name, species, birthyear, photo, notes, ownerid)
 VALUES ('Jack', 'cat', 2003, 'http://wonderopolis.org/wp-content/uploads/2015/08/1_9.jpg', 'Friendly cat with no health issues',1);
 
 INSERT INTO sitters (firstname, lastname, username, password_digest) VALUES ('Testsitter', 'McTester', 'sittertest1', 'sittertesting1');
+
+ALTER TABLE users ALTER COLUMN token type VARCHAR(255);

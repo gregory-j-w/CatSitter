@@ -9,7 +9,7 @@ class User{
   firstname: string;
   lastname: string;
   email: string;
-  password_digest: string;
+  password: string;
   street: string;
   city: string;
   state: string;
@@ -36,11 +36,11 @@ class Pet{
 export class ProfileComponent {
   // stuff that goes onto the profile.component.html
 
-  users: User[] = [];
+  user: User = new User();
   updateUser: User = new User();
   showUserPatchForm: boolean = false;
 
-  pets: Pet[] = [];
+  pet: Pet = new Pet();
   updatePet: Pet = new Pet();
   showPetPatchForm: boolean = false;
 
@@ -50,7 +50,9 @@ export class ProfileComponent {
 
   getUsers(){
   this.http.get('http://localhost:9393/users?token=' + window.localStorage.token).subscribe(response => {
-    this.users = response.json()
+    this.user = response.json().user
+    this.pet = response.json().pet
+
     }, err => {
       //if permission denied
       if(err.status === 403){
@@ -63,15 +65,29 @@ export class ProfileComponent {
 
   patchUser(){
     this.showUserPatchForm = true
-    this.http.patch('http://localhost:9393/users/' + this.updateUser.id, this.updateUser).subscribe(response =>
-    this.users = response.json()
-    )
-  }
+    this.http.patch('http://localhost:9393/users>token=' + window.localStorage.token + this.updateUser.id, this.updateUser).subscribe(response => {
+      this.user = response.json().user
+    }, err => {
+      //if permission denied
+      if(err.status === 403){
+      this.router.navigate(['/login'])
+    } else {
+      alert("ERROR");
+    }
+  })
+ }
 
   patchPet(){
     this.showPetPatchForm = true
-    this.http.patch('http://localhost:9393/pets/' + this.updatePet.id, this.updatePet).subscribe(response =>
-    this.users = response.json()
-    )
-  }
+    this.http.patch('http://localhost:9393/pets/' + this.updatePet.id, this.updatePet).subscribe(response => {
+       this.user = response.json().pet
+    }, err => {
+      //if permission denied
+      if(err.status === 403){
+      this.router.navigate(['/login'])
+    } else {
+      alert("ERROR");
+    }
+  })
+}
 }
