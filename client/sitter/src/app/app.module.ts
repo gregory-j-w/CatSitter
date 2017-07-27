@@ -11,9 +11,12 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PetregisterComponent } from './petregister/petregister.component';
 import { AppointmentComponent } from './appointment/appointment.component';
-import { SitterComponent } from './sitter/sitter.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
+import { SitterloginComponent } from './sitterlogin/sitterlogin.component';
+import { SitterComponent } from './sitter/sitter.component';
+
+
 
 
 const routes: Routes = [
@@ -48,6 +51,14 @@ const routes: Routes = [
   {
     path: 'appointment',
     component: AppointmentComponent
+  },
+  {
+    path: 'sitterlogin',
+    component: SitterloginComponent
+  },
+  {
+    path: 'sitter',
+    component: SitterComponent
   }
 ]
 
@@ -63,7 +74,8 @@ const routes: Routes = [
     AppointmentComponent,
     SitterComponent,
     ServicesComponent,
-    ContactComponent
+    ContactComponent,
+    SitterloginComponent
   ],
   imports: [
     BrowserModule,
