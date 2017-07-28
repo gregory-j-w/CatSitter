@@ -1,6 +1,6 @@
-CREATE DATABASE sittertest1;
+CREATE DATABASE sitter1;
 
-\c sittertest1;
+\c sittertest;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
