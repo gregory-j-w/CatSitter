@@ -1,11 +1,12 @@
 <!-- nav bar: /home /services /contact/ PROFILE-->
-<div>
+<div class = "calendar">
+  <p id = "appointmentDetail">Date: </p>
   <input id="date" type="date" [(ngModel)]="newAppointment.date">
 </div>
 <div>
   <div class = "appointmentTime">
-    <p>Time: </p>
-    <select name="time" [(ngModel)]="newAppointment.time">
+    <p id = "appointmentDetail">Time: </p>
+    <select class = "dropbox" name= "time" [(ngModel)]="newAppointment.time">
       <option value="morning">9am to 12pm</option>
       <option value="afternoon" selected>12pm to 3pm</option>
       <option value="evening">4pm to 6pm</option>
@@ -13,8 +14,8 @@
     </select>
   </div>
   <div class = "appointmentType">
-    <p>Type: </p>
-    <select name="type" [(ngModel)]="newAppointment.service">
+    <p id = "appointmentDetail">Type: </p>
+    <select class = "dropbox" name="type" [(ngModel)]="newAppointment.service">
       <option value="cat30">30 min Cat Visit</option>
       <option value="cat45" selected>45 min Cat Visit</option>
       <option value="cat60">60 min Cat Visit</option>
@@ -22,7 +23,7 @@
     </select>
   </div>
   <div>
-    <input [(ngModel)]="newAppointment.notes" placeholder="Anything else we can do? Litter change, administer medicine, something else? Let us know!"/>
+    <input class = "appointmentNotes"[(ngModel)]="newAppointment.notes" placeholder="Anything else we can do?"/>
   </div>
 </div>
-  <button (click)="postAppointment()">Make Appointment</button>
+  <button class = "btn" (click)="postAppointment()">Make Appointment</button>

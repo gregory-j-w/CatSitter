@@ -29,3 +29,20 @@
   color: rgb(0,128,0);
   padding: 3px 0px 3px 5px;
 }
+
+.btn {
+  background: #008000;
+  background-image: linear-gradient(to bottom, #008000, #034703);
+  border-radius: 28px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 24px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}

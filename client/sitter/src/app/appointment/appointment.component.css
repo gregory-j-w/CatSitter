@@ -1,0 +1,21 @@
+#date, option {
+  font-size: 18px;
+}
+
+#appointmentDetail {
+  font-size: 30px;
+}
+
+.date, .dropbox {
+  width: 250px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.appointmentNotes {
+  font-size: 18px;
+  width: 400px;
+  height: 200px;
+  text-align: left;
+  word-wrap: normal;
+}
