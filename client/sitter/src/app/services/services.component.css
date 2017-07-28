@@ -1,0 +1,31 @@
+th {
+  border-bottom: 1px solid black;
+  width: 75px;
+}
+
+
+table {
+  border: 1px solid black;
+}
+
+.service {
+  width: 200px;
+  text-align: center;
+}
+
+.fee {
+  width: 150px;
+  text-align: center;
+}
+
+#serviceArea {
+  padding-left: 10px;
+}
+
+.map {
+  padding: 0 0 0 30px;
+}
+
+.serviceMap{
+  border: 1px solid black;
+}

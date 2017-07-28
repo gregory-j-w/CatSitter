@@ -1,0 +1,8 @@
+#amber {
+  float: left;
+  height: 150px;
+  width: 150px;
+  margin: 10px 20px 20px 0;
+  padding: 0;
+  boarder: 1px solid black;
+}

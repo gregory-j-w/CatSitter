@@ -1,62 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
-ul {
-  list-style: none;
+.header {
+  height: auto;
+  max-height: 200px;
 }
 
-th, td {
-  border: 1px solid black;
-}
-
-
-.footer-contact {
-   float: left;
-   width: 30px;
-   height: 30px;
-  }
-
-.footer-contact img {
+.header img {
   width: 100%;
   height: auto;
-  }
-
-# copyright {
-  float: right;
-  text-decoration: none;
 }
 
-.navbar {
-  position: relative;
-  display: block;
-  height: 42px;
-  font-size: 11px;
-  font-weight: bold;
-  background: rgb(0,128,0) repeat-x top left;
-  font-family: Arial,Verdana,Helvitica,sans-serif;
-  text-transform: uppercase;}
-
-.navbar ul {
-  margin: 0px;
-  padding: 0;
-  list-style-type: none;
-  width: auto;
+.container {
 }
 
-.navbar ul li {
-  display: block;
-  float: left;
-  margin: 0 1px 0 0;
+.left {
 }
 
-.navbar ul li a {
-  display: block;
-  float: left;
-  color: #EEFFDF;
-  text-decoration: none;
-  padding: 14px 22px 0 22px;
-  height: 28px;
+.main {
+  width: 400x;
 }
 
-.navbar ul li a:hover, .nabar ul li a.current {
-  color: #fff;
-  background: rgb(0,100,0) no-repeat top center;
+.right {
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+.sectionHeader {
+  border: 1px solid black;
+  color: rgb(0,128,0);
+  padding: 3px 0px 3px 5px;
 }
